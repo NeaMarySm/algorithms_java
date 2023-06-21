@@ -68,6 +68,20 @@ public class LinkedList {
         }
     }
 
+    public void revert() {
+        if (head != null) {
+            Node currentNode = head;
+            Node previous = null;
+            while (currentNode != null) {
+                Node next = currentNode.next;
+                currentNode.next = previous;
+                previous = currentNode;
+                currentNode = next;
+            }
+            head = previous;
+        }
+    }
+
 
     public class Node {
         int value;
